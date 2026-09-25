@@ -34,9 +34,11 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
   render(button.dataset.filter);
 }));
 
-document.getElementById("skills").innerHTML=skills.map(group=>`
-  <div class="skill-group"><h4>${group.group}</h4><div class="skill-list">${group.items.map(item=>`<span class="skill">${item}</span>`).join("")}</div></div>
-`).join("");
+const skillMarquees=document.getElementById("skillMarquees");
+skillMarquees.innerHTML=skills.map((group,index)=>{
+  const chips=`<span class="skill-category">${group.group}</span>${group.items.map(item=>`<span class="skill">${item}</span>`).join("")}`;
+  return `<div class="skill-lane ${index%2===1?"reverse":""}" aria-label="${group.group} skills"><div class="skill-track"><div class="skill-set">${chips}</div><div class="skill-set" aria-hidden="true">${chips}</div></div></div>`;
+}).join("");
 
 const aboutJson=document.getElementById("aboutJson");
 const aboutText=`{

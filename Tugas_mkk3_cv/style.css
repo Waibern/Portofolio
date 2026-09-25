@@ -123,3 +123,15 @@ footer{max-width:1200px;margin:auto;padding:24px;text-align:center;font-family:'
 .skills{display:grid;gap:16px;margin-top:16px}
 .skill-group h4{font:10px 'JetBrains Mono',monospace;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
 .skill-list{display:flex;flex-wrap:wrap;gap:7px}
+.stack-section .section-head{margin-bottom:20px}
+.skill-marquees{display:grid;gap:10px;overflow:hidden}
+.skill-lane{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.skill-track{display:flex;width:max-content;gap:24px;animation:skills-right 30s linear infinite}
+.skill-lane.reverse .skill-track{animation-name:skills-left;animation-duration:34s}
+.skill-set{display:flex;align-items:center;gap:8px;flex:none}
+.skill-category{font:10px 'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-right:2px}
+.skill{white-space:nowrap;font:12px 'JetBrains Mono',monospace;padding:8px 11px;border:1px solid var(--line);background:var(--card);border-radius:4px;color:var(--text)}
+.skill-lane:hover .skill-track{animation-play-state:paused}
+@keyframes skills-right{from{transform:translateX(calc(-50% - 12px))}to{transform:translateX(0)}}
+@keyframes skills-left{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 12px))}}
+@media(prefers-reduced-motion:reduce){.skill-track{animation:none!important}.skill-marquees{overflow-x:auto}.skill-lane{overflow:visible;mask-image:none}.skill-track{transform:none;width:max-content}}
