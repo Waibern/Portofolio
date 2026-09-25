@@ -31,6 +31,33 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
 
 document.getElementById("skills").innerHTML=skills.map(skill=>`<span class="skill">${skill}</span>`).join("");
 
+const aboutJson=document.getElementById("aboutJson");
+const aboutText=`{
+  "name": "William Hakeem Atallah",
+  "location": "Bandung, Indonesia",
+  "education": "Grade 11 · PPLG",
+  "school": "SMK Telkom Bandung",
+  "interests": ["mobile apps", "3D modelling", "game development"]
+}`;
+let typingStarted=false;
+const aboutObserver=new IntersectionObserver(entries=>{
+  if(entries.some(entry=>entry.isIntersecting)&&!typingStarted){
+    typingStarted=true;
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      aboutJson.textContent=aboutText;
+      return;
+    }
+    let position=0;
+    const typeNext=()=>{
+      aboutJson.textContent=aboutText.slice(0,position++);
+      if(position<=aboutText.length) setTimeout(typeNext,22);
+    };
+    typeNext();
+    aboutObserver.disconnect();
+  }
+},{threshold:.35});
+aboutObserver.observe(document.querySelector("#about .about-code"));
+
 const root=document.documentElement;
 const themeButton=document.getElementById("themeToggle");
 root.setAttribute("data-theme",localStorage.getItem("theme")||"light");
@@ -56,4 +83,3 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
   if(entry.isIntersecting) navLinks.forEach(link=>link.classList.toggle("active",link.hash==="#"+entry.target.id));
 }),{rootMargin:"-25% 0px -65% 0px"});
 document.querySelectorAll("section[id]").forEach(section=>observer.observe(section));
-
