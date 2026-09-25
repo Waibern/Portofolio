@@ -35,10 +35,8 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
 }));
 
 const skillMarquees=document.getElementById("skillMarquees");
-skillMarquees.innerHTML=skills.map((group,index)=>{
-  const chips=`<span class="skill-category">${group.group}</span>${group.items.map(item=>`<span class="skill">${item}</span>`).join("")}`;
-  return `<div class="skill-lane ${index%2===1?"reverse":""}" aria-label="${group.group} skills"><div class="skill-track"><div class="skill-set">${chips}</div><div class="skill-set" aria-hidden="true">${chips}</div></div></div>`;
-}).join("");
+const skillChips=skills.flatMap(group=>group.items).map(item=>`<span class="skill">${item}</span>`).join("");
+skillMarquees.innerHTML=`<div class="skill-track"><div class="skill-set">${skillChips}</div><div class="skill-set" aria-hidden="true">${skillChips}</div></div>`;
 
 const aboutJson=document.getElementById("aboutJson");
 const aboutText=`{
