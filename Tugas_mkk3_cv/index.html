@@ -1,70 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f7f4">
-  <meta name="description" content="William Hakeem Atallah — student developer building useful apps, games, and 3D experiences.">
-  <title>William Hakeem Atallah — Developer &amp; 3D Artist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{color-scheme:light;--bg:#f7f7f4;--panel:#fff;--text:#20211d;--muted:#6c6d65;--line:#dedfd7;--lime:#647b22;--max:1120px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Manrope,system-ui,sans-serif}a{color:inherit}
-    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.mono,.eyebrow,.nav-links a,.project-type,.footer-note{font-family:"DM Mono",monospace}.eyebrow{color:var(--lime);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
-    .topbar{position:sticky;top:0;z-index:10;background:rgba(247,247,244,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(32,33,29,.10)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{text-decoration:none;font-weight:800;letter-spacing:-.035em;font-size:1.08rem}.brand span{color:var(--lime)}.nav-links{display:flex;align-items:center;gap:30px}.nav-links a{text-decoration:none;color:#55564f;font-size:.78rem}.nav-links a:hover{color:var(--lime)}
-    .hero{padding:104px 0 112px;display:grid;grid-template-columns:1fr 300px;gap:80px;align-items:center}.hero h1{font-size:clamp(3.2rem,7vw,6rem);letter-spacing:-.085em;line-height:.98;margin:22px 0 25px;max-width:790px}.hero h1 em{font-style:normal;color:var(--lime)}.lead{max-width:650px;color:#55564f;font-size:1.09rem;line-height:1.8}.hero-actions{display:flex;gap:12px;margin-top:33px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border:1px solid var(--line);border-radius:5px;text-decoration:none;font-weight:700;font-size:.88rem;transition:.2s}.button.primary{background:var(--lime);border-color:var(--lime);color:#171810}.button:hover{transform:translateY(-2px);border-color:var(--lime)}.portrait-frame{position:relative;padding:10px;border:1px solid var(--line);transform:rotate(2deg)}.portrait-frame:after{content:"";position:absolute;inset:20px -13px -13px 20px;border:1px solid var(--lime);z-index:-1}.portrait{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.78)}.portrait-label{position:absolute;left:-24px;bottom:25px;background:var(--lime);color:#191a12;padding:8px 12px;font: .7rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
-    .ticker{border-block:1px solid var(--line);padding:17px 0;color:var(--muted);font: .75rem "DM Mono",monospace;letter-spacing:.11em;text-transform:uppercase}.ticker span{color:var(--lime);padding:0 16px}
-    section.content-section{padding:94px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.section-head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.065em;margin:9px 0 0}.section-head p{color:var(--muted);max-width:360px;margin:0}.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px}.about-copy{color:#4c4d46;font-size:1.08rem;max-width:660px}.facts{border-top:1px solid var(--line)}.fact{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.9rem}.fact span:first-child{color:var(--muted)}
-    .skills{display:flex;flex-wrap:wrap;gap:10px}.skill{border:1px solid var(--line);background:var(--panel);padding:10px 14px;border-radius:3px;color:#44453f;font-size:.87rem}.skill:hover{border-color:var(--lime);color:var(--lime)}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.project{border:1px solid var(--line);background:var(--panel);overflow:hidden;transition:transform .22s,border-color .22s}.project:hover{transform:translateY(-4px);border-color:#74765b}.project-media{height:270px;background:#ecece7;overflow:hidden}.project-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;filter:saturate(.92)}.project:hover .project-media img{transform:scale(1.035)}.project:nth-child(1) .project-media img{object-fit:contain;padding:18px;background:#e8e8e5}.project-info{padding:23px 24px 25px}.project-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.project-type{color:#586c1d;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}.project-index{color:#67675f;font:.72rem "DM Mono",monospace}.project h3{font-size:1.4rem;letter-spacing:-.04em;margin:12px 0 7px}.project p{color:var(--muted);font-size:.91rem;margin:0;min-height:54px}.project-link{display:inline-flex;margin-top:19px;text-decoration:none;color:var(--lime);font-size:.82rem;font-weight:700}.project-link:hover{text-decoration:underline}
-    .contact-box{padding:36px;border:1px solid var(--line);background:var(--panel);display:flex;justify-content:space-between;align-items:center;gap:28px}.contact-box h2{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.07em;line-height:1.05;margin:10px 0}.contact-box p{color:var(--muted);margin:0}.contact-email{white-space:nowrap}
-    footer{padding:27px 0;color:var(--muted);font-size:.78rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-note{font-size:.7rem}
-    :focus-visible{outline:2px solid var(--lime);outline-offset:4px}
-    @media(max-width:760px){.wrap{width:min(100% - 34px,var(--max))}.nav{height:66px}.nav-links{gap:15px}.nav-links a{font-size:.69rem}.hero{padding:75px 0 80px;grid-template-columns:1fr;gap:45px}.hero h1{font-size:clamp(3.3rem,14vw,5rem)}.portrait-frame{width:min(280px,80%);margin:0 auto}.portrait-label{left:-18px}.about-grid{grid-template-columns:1fr;gap:28px}section.content-section{padding:72px 0}.section-head{align-items:start;flex-direction:column;gap:12px}.projects{grid-template-columns:1fr}.project-media{height:240px}.contact-box{align-items:flex-start;flex-direction:column;padding:25px}.contact-email{white-space:normal}.footer-row{flex-direction:column;gap:5px}}
-    @media(max-width:420px){.nav-links{gap:10px}.nav-links a{font-size:.63rem}.brand{font-size:.98rem}.hero h1{font-size:3.15rem}.hero-actions .button{font-size:.8rem;padding:11px 13px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbfaf8">
+  <meta name="description" content="William Hakeem Atallah — student developer and 3D modeller from Bandung, Indonesia.">
+  <title>Waibern.kt — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav">
-    <a class="brand" href="#top">Waibern<span>.kt</span></a>
-    <nav class="nav-links" aria-label="Main navigation"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#work">WORK</a><a href="#contact">CONTACT</a></nav>
-  </div></header>
-  <main id="top">
-    <div class="wrap hero">
-      <div>
-        <div class="eyebrow">Student · Bandung, Indonesia</div>
-        <h1>I build apps,<br>games &amp; 3D.</h1>
-        <p class="lead">Hi, I’m William — an eleventh-grade PPLG student who enjoys making mobile apps, experimenting with AI, creating Roblox experiences, and modelling in 3D.</p>
-        <div class="hero-actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="button" href="mailto:williamhatallah12@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
-      </div>
-      <div class="portrait-frame"><img class="portrait" src="images/Photo%20on%2008-09-26%20at%2008.47.jpg" alt="Portrait of William"><span class="portrait-label">SMK Telkom Bandung</span></div>
-    </div>
-    <div class="ticker"><div class="wrap">Mobile apps <span>·</span> 3D modelling <span>·</span> Game development</div></div>
-    <section class="content-section" id="about"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">01 / About</div><h2>About me</h2></div></div>
-      <div class="about-grid"><p class="about-copy">I’m a student at SMK Telkom Bandung, studying PPLG (software and game development). I’m especially interested in becoming a mobile app developer. Outside of coding, I take on 3D modelling commissions and like exploring how new tools can help bring ideas to life.</p>
-        <div class="facts"><div class="fact"><span>Based in</span><strong>Bandung, Indonesia</strong></div><div class="fact"><span>Studying</span><strong>PPLG · Grade 11</strong></div><div class="fact"><span>Exploring</span><strong>Apps, AI &amp; 3D</strong></div></div>
-      </div>
-    </div></section>
-    <section class="content-section" id="skills"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">02 / Skills</div><h2>Tools &amp; skills</h2></div><p>Tools and technologies I use.</p></div>
-      <div class="skills"><span class="skill">HTML &amp; CSS</span><span class="skill">Responsive design</span><span class="skill">Kotlin</span><span class="skill">C++</span><span class="skill">Luau</span><span class="skill">Git &amp; GitHub</span><span class="skill">UI / UX</span><span class="skill">3D modelling</span><span class="skill">Blender</span><span class="skill">AI tools</span></div>
-    </div></section>
-    <section class="content-section" id="work"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">03 / Projects</div><h2>Selected projects</h2></div><p>School and personal projects.</p></div>
-      <div class="projects">
-        <article class="project"><div class="project-media"><img src="images/Tourify.png" alt="Tourify travel ticket booking project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Web app · School project</span><span class="project-index">01</span></div><h3>Tourify</h3><p>A ticket booking experience with mobile camera scanning for check-in, built around a React frontend and API backend.</p><a class="project-link" href="https://github.com/Waibern/Tourify-Web" target="_blank" rel="noreferrer">View project <span aria-hidden="true">↗</span></a></div></article>
-        <article class="project"><div class="project-media"><img src="images/nusaride.png" alt="NusaRide Roblox game project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Game · Roblox</span><span class="project-index">02</span></div><h3>NusaRide</h3><p>A Roblox game project built with Luau, exploring interactive worlds and playful experiences.</p><a class="project-link" href="https://www.roblox.com/games/118563327761810/NusaRide" target="_blank" rel="noreferrer">Play on Roblox <span aria-hidden="true">↗</span></a></div></article>
-        <article class="project"><div class="project-media"><img src="images/servics.png" alt="Servics vehicle management app project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Mobile app · Personal</span><span class="project-index">03</span></div><h3>Servics</h3><p>A vehicle care companion for keeping maintenance, service history, and trip details in one place.</p></div></article>
-        <article class="project"><div class="project-media"><img src="images/9router.png" alt="9router AI terminal tool project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Developer tool · Personal</span><span class="project-index">04</span></div><h3>9router</h3><p>An AI-powered terminal tool experiment for working with files and trying ideas directly from the command line.</p></div></article>
-      </div>
-    </div></section>
-    <section class="content-section" id="contact"><div class="wrap contact-box"><div><div class="eyebrow">04 / Contact</div><h2>Get in touch.</h2><p>For questions about my projects or 3D work.</p></div><a class="button primary contact-email" href="mailto:williamhatallah12@gmail.com">williamhatallah12@gmail.com <span aria-hidden="true">↗</span></a></div></section>
-  </main>
-  <footer><div class="wrap footer-row"><span>© 2026 William Hakeem Atallah</span><span class="footer-note">Bandung, Indonesia.</span></div></footer>
+<nav id="navbar"><div class="nav">
+  <a class="logo" href="#home">Waibern<span>.kt</span></a>
+  <div class="links" id="links"><a href="#home" class="active">Home</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  <div class="nav-actions"><button id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle light and dark theme">◐</button><a href="#contact" class="btn btn-small">Contact</a><button id="menuBtn" class="menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button></div>
+</div></nav>
+<section id="home" class="hero">
+  <div class="hero-left">
+    <div class="badge">Student · Bandung, Indonesia</div>
+    <h1>Apps, games<br>&amp; <span>3D work.</span></h1>
+    <p class="muted">I'm <b id="yourName">William Hakeem Atallah</b>, a Grade 11 PPLG student at SMK Telkom Bandung. I build software projects and create 3D models.</p>
+    <div class="cta"><a href="#work" class="btn btn-fill">View my projects ↓</a><a href="mailto:williamhatallah12@gmail.com" class="btn">Email me</a></div>
+    <div class="stats"><div><b>04</b><span>Projects</span></div><div><b>PPLG</b><span>Study program</span></div><div><b>3D</b><span>Modelling</span></div></div>
+  </div>
+  <div class="hero-right"><div class="mock-card">
+    <div class="mock-top"><span></span><span></span><span></span><small>about.txt</small></div>
+    <div class="code"><pre><span class="code-key">name</span>      William Hakeem Atallah
+<span class="code-key">based</span>     Bandung, Indonesia
+<span class="code-key">studying</span>  Software &amp; game development
+<span class="code-key">interests</span> Apps · Roblox · 3D</pre></div>
+    <img class="hero-photo" src="images/Photo%20on%2008-09-26%20at%2008.47.jpg" alt="William Hakeem Atallah">
+  </div></div>
+</section>
+<section id="work">
+  <div class="section-head"><h2>Selected projects <span>(2024–2026)</span></h2>
+    <div class="filters" aria-label="Filter projects"><button data-filter="all" class="active">All</button><button data-filter="web">Web</button><button data-filter="games">Games</button><button data-filter="apps">Apps &amp; tools</button></div>
+  </div>
+  <div class="grid" id="projectGrid"></div>
+</section>
+<section id="about" class="about">
+  <div class="about-left"><h2>About me</h2>
+    <p class="muted">I study PPLG at SMK Telkom Bandung and am interested in mobile app development. I also make 3D models and enjoy learning by building projects.</p>
+    <h3 class="subhead">Skills &amp; tools</h3><div class="skills" id="skills"></div>
+  </div>
+  <div class="about-right"><h3>Education</h3><div class="timeline">
+    <div class="t-item"><div class="t-dot"></div><div><b>SMK Telkom Bandung</b><i>2025 — now</i><p>Grade 11 · Software and game development (PPLG)</p></div></div>
+    <div class="t-item"><div class="t-dot"></div><div><b>SMP Prima Cendekia</b><i>2022 — 2024</i><p>Secondary education · Bandung</p></div></div>
+    <div class="t-item"><div class="t-dot"></div><div><b>SD Fitrah Insani</b><i>2016 — 2021</i><p>Primary education · Bandung</p></div></div>
+  </div></div>
+</section>
+<section id="contact" class="contact"><div class="contact-box">
+  <div><h2>Contact</h2><p class="muted" style="margin-top:12px">For project questions and 3D modelling enquiries, email me.</p>
+    <div class="contact-info"><a href="mailto:williamhatallah12@gmail.com">williamhatallah12@gmail.com</a><span>Bandung, Indonesia</span><div class="socials"><a href="https://github.com/Waibern" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.roblox.com/games/118563327761810/NusaRide" target="_blank" rel="noreferrer">Roblox</a></div></div>
+  </div>
+  <div class="contact-note"><span class="note-dot"></span><p>Currently studying and working on personal projects.</p><a class="btn btn-fill" href="mailto:williamhatallah12@gmail.com">Send an email →</a></div>
+</div></section>
+<footer>© 2026 William Hakeem Atallah · Built with HTML, CSS &amp; JavaScript</footer>
+<script src="script.js"></script>
 </body>
 </html>
-
