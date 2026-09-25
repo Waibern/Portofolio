@@ -5,7 +5,12 @@ const projects = [
   {title:"9router",cat:"apps",desc:"An AI-powered terminal tool experiment for working with files and APIs.",tags:["AI","Developer tool"],year:"2026",image:"images/9router.png"}
 ];
 
-const skills=["HTML & CSS","C++","Kotlin","Luau","Git & GitHub","3D modelling","Blender","UI / UX"];
+const skills=[
+  {group:"Web",items:["HTML","CSS","React"]},
+  {group:"Programming",items:["C++","Kotlin","Luau"]},
+  {group:"Platforms & tools",items:["Git","GitHub","Roblox Studio","Blender"]},
+  {group:"Design",items:["UI / UX","3D modelling"]}
+];
 const grid=document.getElementById("projectGrid");
 
 function render(filter="all"){
@@ -29,7 +34,9 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
   render(button.dataset.filter);
 }));
 
-document.getElementById("skills").innerHTML=skills.map(skill=>`<span class="skill">${skill}</span>`).join("");
+document.getElementById("skills").innerHTML=skills.map(group=>`
+  <div class="skill-group"><h4>${group.group}</h4><div class="skill-list">${group.items.map(item=>`<span class="skill">${item}</span>`).join("")}</div></div>
+`).join("");
 
 const aboutJson=document.getElementById("aboutJson");
 const aboutText=`{

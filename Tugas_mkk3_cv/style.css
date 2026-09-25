@@ -120,3 +120,6 @@ footer{max-width:1200px;margin:auto;padding:24px;text-align:center;font-family:'
 @keyframes cursor-blink{to{visibility:hidden}}
 @media(max-width:900px){.about-photo{max-width:520px}}
 @media(prefers-reduced-motion:reduce){.typing-cursor{animation:none}}
+.skills{display:grid;gap:16px;margin-top:16px}
+.skill-group h4{font:10px 'JetBrains Mono',monospace;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.skill-list{display:flex;flex-wrap:wrap;gap:7px}
