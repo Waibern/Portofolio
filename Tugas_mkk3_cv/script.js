@@ -55,8 +55,8 @@ const aboutObserver=new IntersectionObserver(entries=>{
     typeNext();
     aboutObserver.disconnect();
   }
-},{threshold:.35});
-aboutObserver.observe(document.querySelector("#about .about-code"));
+},{threshold:.15});
+aboutObserver.observe(document.querySelector("#home .hero-json"));
 
 const root=document.documentElement;
 const themeButton=document.getElementById("themeToggle");

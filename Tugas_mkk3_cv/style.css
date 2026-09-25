@@ -113,8 +113,7 @@ footer{max-width:1200px;margin:auto;padding:24px;text-align:center;font-family:'
 @media(max-width:600px){.hero{padding:58px 17px}.hero h1{font-size:clamp(39px,12vw,58px)}.stats{gap:18px;justify-content:space-between}.stats b{font-size:17px}.stats span{font-size:9px}.grid{grid-template-columns:1fr}.p-img{height:210px}.contact-box{padding:22px}.section-head h2{font-size:24px}.filters button{padding:6px 10px}}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
-.about-code{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(30,30,20,.06)}
-.about-code pre{min-height:190px;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.8 'JetBrains Mono',monospace;color:var(--muted)}
+.hero-json pre{min-height:240px;padding:22px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.9 'JetBrains Mono',monospace;color:var(--muted)}
 .typing-cursor{display:inline-block;width:7px;height:14px;margin-left:2px;vertical-align:-2px;background:var(--accent);animation:cursor-blink .85s steps(2,start) infinite}
 .about-photo{display:block;width:100%;max-width:420px;height:240px;object-fit:cover;object-position:center 38%;margin:0 0 28px;border:1px solid var(--line);border-radius:14px}
 .about-right>h3{font-size:18px}
