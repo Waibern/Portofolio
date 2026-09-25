@@ -1,520 +1,70 @@
-<!DOCTYPE html>
-<!-- Menyatakan bahwa dokumen ini Menggunakan standar HTML5 -->
-<html lang="id">
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- Mengatur enkodasi karakter agar mendukung semua huruf dan simbol -->
-    <meta charset="UTF-8">
-    
-    <!-- Mengatur agar tampilan web otomatis menyesuaikan lebar layar HP / Laptop -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Judul tab pada web browser (UBAH SESUAI NAMAMU) -->
-    <title>Portofolio - William</title>
-
-    <!-- Tempat penulisan CSS (Internal CSS) -->
-    <style>
-        /* ========================================================= */
-        /* 1. RESET & ATURAN UNIVERSAL                               */
-        /* ========================================================= */
-
-        /* Universal Selector (*) berlaku untuk SEMUA elemen di halaman */
-        * {
-            margin: 0; /* Menghapus jarak luar bawaan browser */
-            padding: 0; /* Menghapus jarak dalam bawaan browser */
-            box-sizing: border-box; /* Ukuran elemen dihitung termasuk padding & border */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Jenis huruf utama */
-        }
-
-        /* Mengatur perilaku scroll halaman agar terasa halus (smooth) saat navigasi diklik */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Styling dasar untuk bagian badan web (body) */
-        body {
-            background-color: #f8fafc; /* Warna latar belakang web (Bisa diganti kode HEX lain) */
-            color: #334155; /* Warna teks utama */
-            line-height: 1.6; /* Tinggi spasi antar baris kalimat */
-        }
-
-        /* ========================================================= */
-        /* 2. HEADER & NAVIGASI (POSITION STICKY & Z-INDEX)          */
-        /* ========================================================= */
-
-        /* Bar navigasi paling atas */
-        header {
-            position: sticky; /* Membuat header tetap menempel di atas saat di-scroll */
-            top: 0; /* Menempel tepat di batas atas layar */
-            z-index: 1000; /* Memastikan header selalu di posisi paling depan / tidak tertimpa */
-            background-color: #0f172a; /* Warna latar header (Biru Gelap) */
-            padding: 15px 40px; /* Padding: 15px atas-bawah, 40px kiri-kanan */
-            display: flex; /* Menggunakan Flexbox untuk mengatur posisi anak elemen */
-            justify-content: space-between; /* Logo di kiri, menu navigasi di kanan */
-            align-items: center; /* Membuat posisi logo dan menu sejajar secara vertikal */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Bayangan lembut di bawah header */
-        }
-
-        /* Styling teks logo / nama panggilan */
-        .logo {
-            font-size: 1.5rem; /* Ukuran huruf logo */
-            font-weight: bold; /* Teks tebal */
-            color: #38bdf8; /* Warna teks logo (Biru Muda) */
-            text-decoration: none; /* Menghilangkan garis bawah pada link */
-        }
-
-        /* Mengatur daftar menu navigasi */
-        nav ul {
-            display: flex; /* Menjajarkan menu ke samping */
-            list-style: none; /* Menghilangkan tanda titik (bullet) pada list */
-            gap: 20px; /* Jarak antar item menu */
-        }
-
-        /* Styling untuk link dalam menu navigasi */
-        nav a {
-            color: #f8fafc; /* Warna teks menu */
-            text-decoration: none; /* Menghilangkan garis bawah */
-            font-weight: 500; /* Ketebalan sedang */
-            transition: color 0.3s; /* Efek transisi halus saat warna berubah */
-        }
-
-        /* Efek saat kursor mengarah (hover) ke menu navigasi */
-        nav a:hover {
-            color: #38bdf8; /* Warna teks berubah menjadi biru muda */
-        }
-
-        /* ========================================================= */
-        /* 3. HERO SECTION (BAGIAN PROFIL UTAMA)                     */
-        /* ========================================================= */
-
-        /* Kontainer profil utama */
-        .hero {
-            display: flex; /* Flexbox untuk mengatur foto dan teks bersisian */
-            align-items: center; /* Meratakan posisi foto dan teks secara vertikal */
-            justify-content: center; /* Posisi tengah */
-            gap: 40px; /* Jarak antara foto dan teks profil */
-            padding: 80px 20px; /* Padding atas-bawah 80px, kiri-kanan 20px */
-            background-color: #ffffff; /* Latar belakang putih */
-        }
-
-        /* Styling untuk foto profil */
-        .hero-img {
-            width: 180px; /* Lebar foto */
-            height: 180px; /* Tinggi foto */
-            border-radius: 50%; /* Dibuat bulat sempurna (100% / 50%) */
-            object-fit: cover; /* Foto disesuaikan agar tidak gepeng/tertarik */
-            border: 4px solid #38bdf8; /* Border/garis tepi biru di sekeliling foto */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Bayangan di belakang foto */
-        }
-
-        /* Styling teks ucapan selamat datang */
-        .hero-text h1 {
-            font-size: 2.2rem; /* Ukuran judul besar */
-            color: #0f172a; /* Warna teks */
-            margin-bottom: 5px; /* Jarak bawah ke teks jurusan */
-        }
-
-        /* Styling teks profesi / jurusan */
-        .hero-text h3 {
-            font-size: 1.2rem; /* Ukuran huruf sedang */
-            color: #0284c7; /* Warna biru */
-            margin-bottom: 15px; /* Jarak bawah ke deskripsi singkat */
-        }
-
-        /* Styling deskripsi singkat */
-        .hero-text p {
-            max-width: 500px; /* Batas lebar maksimal paragraf agar tidak terlalu panjang */
-            color: #64748b; /* Warna abu-abu */
-            margin-bottom: 20px; /* Jarak ke tombol */
-        }
-
-        /* Tombol Kontak (Button Styling) */
-        .btn-primary {
-            display: inline-block; /* Agar tombol memiliki lebar/tinggi dan sejajar */
-            background-color: #0284c7; /* Warna latar tombol */
-            color: #ffffff; /* Warna teks tombol */
-            padding: 10px 22px; /* Jarak dalam tombol */
-            border-radius: 6px; /* Sudut melengkung pada tombol */
-            text-decoration: none; /* Menghilangkan garis bawah */
-            font-weight: bold; /* Teks tebal */
-            transition: background-color 0.3s; /* Transisi warna halus */
-        }
-
-        /* Efek hover pada tombol */
-        .btn-primary:hover {
-            background-color: #0369a1; /* Warna tombol berubah lebih gelap saat disorot */
-        }
-
-        /* ========================================================= */
-        /* 4. SEKSI TENTANG SAYA & KEAHLIAN (BOX MODEL & LAYOUT)     */
-        /* ========================================================= */
-
-        /* Kontainer pembungkus seksi utama */
-        .container {
-            max-width: 1000px; /* Lebar maksimal area konten */
-            margin: 50px auto; /* Margin atas-bawah 50px, auto membuat posisi di tengah */
-            padding: 0 20px; /* Padding kiri-kanan */
-        }
-
-        /* Judul setiap seksi (Tentang, Keahlian, Proyek) */
-        .section-title {
-            text-align: center; /* Teks rata tengah */
-            font-size: 1.8rem; /* Ukuran huruf judul */
-            color: #0f172a; /* Warna huruf */
-            margin-bottom: 30px; /* Jarak bawah ke konten seksi */
-            position: relative; /* Digunakan jika ingin menambah dekorasi garis */
-        }
-
-        /* Kotak "Tentang Saya" */
-        .about-card {
-            background-color: #ffffff; /* Latar putih */
-            padding: 30px; /* Jarak dalam kotak */
-            border-radius: 8px; /* Lengkungan sudut */
-            border-left: 5px solid #0284c7; /* Garis tebal di sebelah kiri kotak */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Bayangan sangat tipis */
-        }
-
-        /* Layout Grid untuk daftar Keahlian / Skill */
-        .skills-grid {
-            display: grid; /* Menggunakan CSS Grid */
-            grid-template-columns: repeat(3, 1fr); /* Membagi menjadi 3 kolom sama besar */
-            gap: 20px; /* Jarak antar kotak keahlian */
-        }
-
-        /* Kotak kecil item keahlian */
-        .skill-item {
-            background-color: #ffffff; /* Warna latar */
-            padding: 20px; /* Padding dalam */
-            border-radius: 8px; /* Lengkungan sudut */
-            text-align: center; /* Teks di tengah */
-            border: 1px solid #e2e8f0; /* Garis tepi tipis */
-            font-weight: bold; /* Teks tebal */
-            color: #334155; /* Warna teks */
-        }
-
-        /* ========================================================= */
-        /* 5. SEKSI PROYEK / PORTOFOLIO (GRID & POSITION ABSOLUTE)   */
-        /* ========================================================= */
-
-        /* Layout Grid untuk daftar Proyek */
-        .projects-grid {
-            display: grid; /* CSS Grid */
-            grid-template-columns: repeat(2, 1fr); /* Membagi menjadi 2 kolom sama besar */
-            gap: 25px; /* Jarak antar kartu proyek */
-        }
-
-        /* Kotak Gambar Proyek */
-        .project-image-box {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-            position: relative;
-            margin: -25px -25px 20px -25px;
-        }
-
-        .project-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: none;
-        }
-
-        .project-image-box.has-image img {
-            display: block;
-        }
-
-        .project-image-box.has-image .placeholder {
-            display: none;
-        }
-
-        .project-image-box .placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: #94a3b8;
-        }
-
-        .project-image-box .placeholder svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-            opacity: 0.5;
-        }
-
-        .project-image-box .placeholder p {
-            font-size: 14px;
-        }
-
-        /* Kartu Proyek */
-        .project-card {
-            background-color: #ffffff; /* Latar putih */
-            border-radius: 8px; /* Lengkungan sudut */
-            border: 1px solid #e2e8f0; /* Garis tepi */
-            padding: 25px; /* Padding dalam */
-            position: relative; /* Penting! Menjadi acuan posisi badge (Position Absolute) */
-            transition: transform 0.3s; /* Transisi efek terangkat */
-            overflow: hidden;
-        }
-
-        /* Efek kartu terangkat saat kursor diarahkan */
-        .project-card:hover {
-            transform: translateY(-5px); /* Menggeser kartu ke atas sejauh 5 pixel */
-        }
-
-        /* Label / Badge Kategori Proyek di Pojok Kartu */
-        .project-badge {
-            position: absolute; /* Mengunci posisi relatif terhadap .project-card */
-            top: 15px; /* Jarak 15px dari atas kartu */
-            right: 15px; /* Jarak 15px dari kanan kartu */
-            background-color: #e0f2fe; /* Warna latar biru sangat muda */
-            color: #0369a1; /* Warna teks biru gelap */
-            padding: 4px 10px; /* Padding badge */
-            font-size: 0.75rem; /* Ukuran teks kecil */
-            border-radius: 20px; /* Sudut sangat bulat (Pill shape) */
-            font-weight: bold; /* Teks tebal */
-        }
-
-        .project-card h3 {
-            margin-bottom: 10px; /* Jarak judul proyek ke deskripsi */
-            color: #0f172a; /* Warna teks */
-        }
-
-        .project-card p {
-            color: #64748b; /* Warna deskripsi */
-            font-size: 0.95rem; /* Ukuran teks */
-        }
-
-        /* ========================================================= */
-        /* 6. FOOTER                                                 */
-        /* ========================================================= */
-
-        footer {
-            background-color: #0f172a; /* Warna latar gelap */
-            color: #94a3b8; /* Warna teks abu-abu muda */
-            text-align: center; /* Teks di tengah */
-            padding: 25px; /* Jarak dalam atas-bawah */
-            margin-top: 60px; /* Jarak dari seksi atasnya */
-            font-size: 0.9rem; /* Ukuran teks */
-        }
-
-        /* ========================================================= */
-        /* 7. MEDIA QUERY (RESPONSIF TAMPILAN HP / TABLET)           */
-        /* ========================================================= */
-
-        /* Aturan ini berjalan HANYA JIKA lebar layar <= 768px (Ukuran Tablet/HP) */
-        @media (max-width: 768px) {
-            /* Mengubah arah header menjadi menumpuk ke bawah */
-            header {
-                flex-direction: column; 
-                gap: 10px;
-                padding: 15px;
-            }
-
-            /* Mengubah tampilan Profil utama menjadi menumpuk vertikal */
-            .hero {
-                flex-direction: column; 
-                text-align: center; 
-                padding: 40px 20px;
-            }
-
-            /* Mengubah Grid Keahlian menjadi 2 kolom pada HP */
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr); 
-            }
-
-            /* Mengubah Grid Proyek menjadi 1 kolom penuh pada HP */
-            .projects-grid {
-                grid-template-columns: 1fr; 
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10100e">
+  <meta name="description" content="William Hakeem Atallah — student developer building useful apps, games, and 3D experiences.">
+  <title>William Hakeem Atallah — Developer &amp; 3D Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#10100e;--panel:#171714;--text:#f1f0e9;--muted:#999990;--line:#32322d;--lime:#d8ff63;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Manrope,system-ui,sans-serif}a{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.mono,.eyebrow,.nav-links a,.project-type,.footer-note{font-family:"DM Mono",monospace}.eyebrow{color:var(--lime);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(16,16,14,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{text-decoration:none;font-weight:800;letter-spacing:-.05em;font-size:1.08rem}.brand span{color:var(--lime)}.nav-links{display:flex;align-items:center;gap:30px}.nav-links a{text-decoration:none;color:#c7c7be;font-size:.78rem}.nav-links a:hover{color:var(--lime)}
+    .hero{padding:104px 0 112px;display:grid;grid-template-columns:1fr 300px;gap:80px;align-items:center}.hero h1{font-size:clamp(3.2rem,7vw,6rem);letter-spacing:-.085em;line-height:.98;margin:22px 0 25px;max-width:790px}.hero h1 em{font-style:normal;color:var(--lime)}.lead{max-width:650px;color:#bbbcb2;font-size:1.09rem;line-height:1.8}.hero-actions{display:flex;gap:12px;margin-top:33px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border:1px solid var(--line);border-radius:5px;text-decoration:none;font-weight:700;font-size:.88rem;transition:.2s}.button.primary{background:var(--lime);border-color:var(--lime);color:#171810}.button:hover{transform:translateY(-2px);border-color:var(--lime)}.portrait-frame{position:relative;padding:10px;border:1px solid var(--line);transform:rotate(2deg)}.portrait-frame:after{content:"";position:absolute;inset:20px -13px -13px 20px;border:1px solid var(--lime);z-index:-1}.portrait{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.78)}.portrait-label{position:absolute;left:-24px;bottom:25px;background:var(--lime);color:#191a12;padding:8px 12px;font: .7rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
+    .ticker{border-block:1px solid var(--line);padding:17px 0;color:var(--muted);font: .75rem "DM Mono",monospace;letter-spacing:.11em;text-transform:uppercase}.ticker span{color:var(--lime);padding:0 16px}
+    section.content-section{padding:94px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.section-head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.065em;margin:9px 0 0}.section-head p{color:var(--muted);max-width:360px;margin:0}.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px}.about-copy{color:#c6c6bc;font-size:1.08rem;max-width:660px}.facts{border-top:1px solid var(--line)}.fact{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.9rem}.fact span:first-child{color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}.skill{border:1px solid var(--line);background:var(--panel);padding:10px 14px;border-radius:3px;color:#d8d8cf;font-size:.87rem}.skill:hover{border-color:var(--lime);color:var(--lime)}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.project{border:1px solid var(--line);background:var(--panel);overflow:hidden;transition:transform .22s,border-color .22s}.project:hover{transform:translateY(-4px);border-color:#74765b}.project-media{height:270px;background:#20201b;overflow:hidden}.project-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;filter:saturate(.86)}.project:hover .project-media img{transform:scale(1.035)}.project:nth-child(1) .project-media img{object-fit:contain;padding:18px;background:#e8e8e5}.project-info{padding:23px 24px 25px}.project-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.project-type{color:var(--lime);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}.project-index{color:#67675f;font:.72rem "DM Mono",monospace}.project h3{font-size:1.4rem;letter-spacing:-.04em;margin:12px 0 7px}.project p{color:var(--muted);font-size:.91rem;margin:0;min-height:54px}.project-link{display:inline-flex;margin-top:19px;text-decoration:none;color:var(--lime);font-size:.82rem;font-weight:700}.project-link:hover{text-decoration:underline}
+    .contact-box{padding:36px;border:1px solid var(--line);background:var(--panel);display:flex;justify-content:space-between;align-items:center;gap:28px}.contact-box h2{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.07em;line-height:1.05;margin:10px 0}.contact-box p{color:var(--muted);margin:0}.contact-email{white-space:nowrap}
+    footer{padding:27px 0;color:var(--muted);font-size:.78rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-note{font-size:.7rem}
+    :focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+    @media(max-width:760px){.wrap{width:min(100% - 34px,var(--max))}.nav{height:66px}.nav-links{gap:15px}.nav-links a{font-size:.69rem}.hero{padding:75px 0 80px;grid-template-columns:1fr;gap:45px}.hero h1{font-size:clamp(3.3rem,14vw,5rem)}.portrait-frame{width:min(280px,80%);margin:0 auto}.portrait-label{left:-18px}.about-grid{grid-template-columns:1fr;gap:28px}section.content-section{padding:72px 0}.section-head{align-items:start;flex-direction:column;gap:12px}.projects{grid-template-columns:1fr}.project-media{height:240px}.contact-box{align-items:flex-start;flex-direction:column;padding:25px}.contact-email{white-space:normal}.footer-row{flex-direction:column;gap:5px}}
+    @media(max-width:420px){.nav-links{gap:10px}.nav-links a{font-size:.63rem}.brand{font-size:.98rem}.hero h1{font-size:3.15rem}.hero-actions .button{font-size:.8rem;padding:11px 13px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
 </head>
 <body>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 1: HEADER & NAVIGASI                               -->
-    <!-- ========================================================= -->
-    <header>
-        <!-- EDIT SISWA: Ganti nama/logo kamu di bawah ini -->
-        <a href="#" class="logo">Waibern.kt</a>
-        
-        <!-- Menu Navigasi -->
-        <nav>
-            <ul>
-                <!-- href="#id" berfungsi untuk melompat langsung ke bagian ID tertentu -->
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#keahlian">Keahlian</a></li>
-                <li><a href="#proyek">Proyek</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 2: HERO SECTION (PROFIL UTAMA)                     -->
-    <!-- ========================================================= -->
-    <section class="hero">
-        <!-- EDIT SISWA: Ganti atribut src dengan Link Foto Profil atau nama file foto kamu -->
-        <img src="images/Photo on 08-09-26 at 08.47.jpg" alt="Foto Profil William" class="hero-img">
-        
-        <div class="hero-text">
-            <!-- EDIT SISWA: Ganti Nama Kamu -->
-            <h1>Halo, Saya William hakeem atallah</h1>
-            
-            <!-- EDIT SISWA: Ganti Jurusan / Kelas Kamu -->
-            <h3>Siswa XI RPL 1 - Professional Pemecut AI</h3>
-            
-            <!-- EDIT SISWA: Tulis deskripsi singkat tentang dirimu -->
-            <p>Saya adalah seorang siswa SMK yang tertarik dengan dunia Software Engineer, 3D Modeller , Dan saya Vibe Coding</p>
-            
-            <!-- Tombol aksi hubungi -->
-            <a href="williamhatallah12@gmail.com" class="btn-primary">Hubungi Saya</a>
-        </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 3: SEKSI TENTANG SAYA                              -->
-    <!-- ========================================================= -->
-    <section class="container" id="tentang">
-        <h2 class="section-title">Tentang Saya</h2>
-        <div class="about-card">
-            <!-- EDIT SISWA: Tulis cerita/biodata singkatmu di sini -->
-            <p>Saya adalah siswa SMK Telkom Bandung jurusan PPLG. Sekarang saya duduk di kelas 11. Saya berminat menjadi Mobile App Developer. Selain coding, saya juga commission 3D modelling.</p>
-        </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 4: SEKSI KEAHLIAN / SKILLS                         -->
-    <!-- ========================================================= -->
-    <section class="container" id="keahlian">
-        <h2 class="section-title">Keahlian Saya</h2>
-        <div class="skills-grid">
-            <!-- EDIT SISWA: Tambah, ubah, atau hapus keahlian kamu di bawah ini -->
-            <div class="skill-item">HTML5 & CSS3</div>
-            <div class="skill-item">Desain Responsif</div>
-            <div class="skill-item">Basic C++</div>
-            <div class="skill-item">Git & GitHub</div>
-            <div class="skill-item">UI/UX Design</div>
-            <div class="skill-item">Troubleshooting PC</div>
-            <div class="skill-item">3D Modelling</div>
-            <div class="skill-item">Basic Kotlin</div>
-            <div class="skill-item">Luau</div>
-            <div class="skill-item">9router</div>
-        </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 5: SEKSI PROYEK / PORTOFOLIO                       -->
-    <!-- ========================================================= -->
-    <section class="container" id="proyek">
-        <h2 class="section-title">Proyek Saya</h2>
-        <div class="projects-grid">
-            
-            <!-- Kartu Proyek 1 -->
-            <div class="project-card">
-                <!-- Kotak Gambar Proyek -->
-                <div class="project-image-box" id="image-box-1">
-                    <div class="placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <p>Tambahkan gambar proyek</p>
-                    </div>
-                    <img src="images/Tourify.png" alt="Tourify Project" id="project-image-1">
-                </div>
-                <!-- EDIT SISWA: Kategori Proyek -->
-                <span class="project-badge">Tugas Web</span>
-                <!-- EDIT SISWA: Judul Proyek -->
-                <h3>Tourify</h3>
-                <!-- EDIT SISWA: Deskripsi Proyek -->
-                <p>Membuat Web Pemesan ticket yang bisa menggunakan kamera hp untuk scan ticket Berbasis React, Fast.api</p>
-            </div>
-
-            <!-- Kartu Proyek 2 -->
-            <div class="project-card">
-                <!-- Kotak Gambar Proyek -->
-                <div class="project-image-box" id="image-box-2">
-                    <div class="placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <p>Tambahkan gambar proyek</p>
-                    </div>
-                    <img src="images/nusaride.png" alt="NusaRide Project" id="project-image-2">
-                </div>
-                <span class="project-badge">Tugas Game</span>
-                <h3>NusaRide</h3>
-                <p>Nusaride adalah salah satu game Roblox Berbasis .Luau yang saya buat untuk project.</p>
-            </div>
-
-            <!-- Kartu Proyek 3 -->
-            <div class="project-card">
-                <!-- Kotak Gambar Proyek -->
-                <div class="project-image-box" id="image-box-3">
-                    <div class="placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <p>Tambahkan gambar proyek</p>
-                    </div>
-                    <img src="images/servics.png" alt="Servics Project" id="project-image-3">
-                </div>
-                <span class="project-badge">Personal</span>
-                <h3>Servics</h3>
-                <p>adalah aplikasi manajemen kendaraan untuk membantu pengguna mengelola informasi, perawatan, riwayat servis, dan tracking perjalanan kendaraan dalam satu aplikasi.</p>
-            </div>
-
-            <!-- Kartu Proyek 4 -->
-            <div class="project-card">
-                <!-- Kotak Gambar Proyek -->
-                <div class="project-image-box" id="image-box-4">
-                    <div class="placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <p>Tambahkan gambar proyek</p>
-                    </div>
-                    <img src="images/9router.png" alt="9router Project" id="project-image-4">
-                </div>
-                <span class="project-badge">Personal</span>
-                <h3>9router</h3>
-                <p>Menyambungkan API AI ke dalam Terminal yang dimana bisa mengakses file kita dan juga merubah</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ========================================================= -->
-    <!-- ELEMEN 6: FOOTER / HAK CIPTA                             -->
-    <!-- ========================================================= -->
-    <footer>
-        <!-- EDIT SISWA: Ganti Tahun dan Nama Kamu -->
-        <p>&copy; 2026 William Hakeem atallah - Dibuat untuk Tugas Pemrograman Web Kelas XI SMK</p>
-    </footer>
-
-    <!-- Script untuk menambahkan gambar proyek -->
-    <script>
-        // Fungsi untuk menambahkan gambar ke kartu proyek
-        function addProjectImage(cardNumber, imageUrl) {
-            const imageBox = document.getElementById(`image-box-${cardNumber}`);
-            const image = document.getElementById(`project-image-${cardNumber}`);
-            
-            if (imageUrl) {
-                image.src = imageUrl;
-                imageBox.classList.add('has-image');
-            }
-        }
-
-        // Menambahkan gambar ke setiap kartu proyek saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            addProjectImage(1, 'images/Tourify.png');
-            addProjectImage(2, 'images/nusaride.png');
-            addProjectImage(3, 'images/servics.png');
-            addProjectImage(4, 'images/9router.png');
-        });
-    </script>
-
+  <header class="topbar"><div class="wrap nav">
+    <a class="brand" href="#top">WILLIAM<span>.</span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#work">WORK</a><a href="#contact">CONTACT</a></nav>
+  </div></header>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Student developer · Bandung, Indonesia</div>
+        <h1>Building things<br>with <em>curiosity.</em></h1>
+        <p class="lead">Hi, I’m William — an eleventh-grade PPLG student who enjoys making mobile apps, experimenting with AI, creating Roblox experiences, and modelling in 3D.</p>
+        <div class="hero-actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="button" href="mailto:williamhatallah12@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div class="portrait-frame"><img class="portrait" src="images/Photo%20on%2008-09-26%20at%2008.47.jpg" alt="Portrait of William"><span class="portrait-label">Currently learning · building · creating</span></div>
+    </div>
+    <div class="ticker"><div class="wrap">Software <span>✳</span> Mobile apps <span>✳</span> 3D art <span>✳</span> AI experiments <span>✳</span> Game development</div></div>
+    <section class="content-section" id="about"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">01 / A little about me</div><h2>Curious by nature.<br>Builder by habit.</h2></div></div>
+      <div class="about-grid"><p class="about-copy">I’m a student at SMK Telkom Bandung, studying PPLG (software and game development). I’m especially interested in becoming a mobile app developer. Outside of coding, I take on 3D modelling commissions and like exploring how new tools can help bring ideas to life.</p>
+        <div class="facts"><div class="fact"><span>Based in</span><strong>Bandung, Indonesia</strong></div><div class="fact"><span>Studying</span><strong>PPLG · Grade 11</strong></div><div class="fact"><span>Exploring</span><strong>Apps, AI &amp; 3D</strong></div></div>
+      </div>
+    </div></section>
+    <section class="content-section" id="skills"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">02 / What I use</div><h2>Tools &amp; skills</h2></div><p>A growing toolkit for turning ideas into useful and playful things.</p></div>
+      <div class="skills"><span class="skill">HTML &amp; CSS</span><span class="skill">Responsive design</span><span class="skill">Kotlin</span><span class="skill">C++</span><span class="skill">Luau</span><span class="skill">Git &amp; GitHub</span><span class="skill">UI / UX</span><span class="skill">3D modelling</span><span class="skill">Blender</span><span class="skill">AI tools</span></div>
+    </div></section>
+    <section class="content-section" id="work"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">03 / Selected projects</div><h2>Things I’ve made.</h2></div><p>School projects and personal experiments, built one idea at a time.</p></div>
+      <div class="projects">
+        <article class="project"><div class="project-media"><img src="images/Tourify.png" alt="Tourify travel ticket booking project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Web app · School project</span><span class="project-index">01</span></div><h3>Tourify</h3><p>A ticket booking experience with mobile camera scanning for check-in, built around a React frontend and API backend.</p><a class="project-link" href="https://github.com/Waibern/Tourify-Web" target="_blank" rel="noreferrer">View project <span aria-hidden="true">↗</span></a></div></article>
+        <article class="project"><div class="project-media"><img src="images/nusaride.png" alt="NusaRide Roblox game project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Game · Roblox</span><span class="project-index">02</span></div><h3>NusaRide</h3><p>A Roblox game project built with Luau, exploring interactive worlds and playful experiences.</p><a class="project-link" href="https://www.roblox.com/games/118563327761810/NusaRide" target="_blank" rel="noreferrer">Play on Roblox <span aria-hidden="true">↗</span></a></div></article>
+        <article class="project"><div class="project-media"><img src="images/servics.png" alt="Servics vehicle management app project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Mobile app · Personal</span><span class="project-index">03</span></div><h3>Servics</h3><p>A vehicle care companion for keeping maintenance, service history, and trip details in one place.</p></div></article>
+        <article class="project"><div class="project-media"><img src="images/9router.png" alt="9router AI terminal tool project preview" loading="lazy"></div><div class="project-info"><div class="project-top"><span class="project-type">Developer tool · Personal</span><span class="project-index">04</span></div><h3>9router</h3><p>An AI-powered terminal tool experiment for working with files and trying ideas directly from the command line.</p></div></article>
+      </div>
+    </div></section>
+    <section class="content-section" id="contact"><div class="wrap contact-box"><div><div class="eyebrow">04 / Say hello</div><h2>Have an idea?<br>Let’s talk.</h2><p>Always happy to connect about projects, apps, games, or 3D.</p></div><a class="button primary contact-email" href="mailto:williamhatallah12@gmail.com">williamhatallah12@gmail.com <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><span>© 2026 William Hakeem Atallah</span><span class="footer-note">Made with curiosity in Bandung.</span></div></footer>
 </body>
 </html>
+
