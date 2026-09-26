@@ -1,5 +1,5 @@
 const projects = [
-  {title:"Tourify",cat:"web",desc:"A ticket booking website with camera-based ticket scanning for check-in.",tags:["React","API","Web"],year:"2026",image:"images/Tourify.png",link:"https://github.com/Waibern/Tourify-Web",linkText:"View project",contain:true},
+  {title:"Tourify",cat:"web",desc:"A ticket booking website with camera-based ticket scanning for check-in.",tags:["React","API","Web"],year:"2026",image:"images/Tourify.png",link:"https://github.com/Waibern/TourifyWeb",linkText:"View project",contain:true},
   {title:"NusaRide",cat:"games",desc:"A Roblox game project built with Luau.",tags:["Roblox","Luau"],year:"2026",image:"images/nusaride.png",link:"https://www.roblox.com/games/118563327761810/NusaRide",linkText:"Play on Roblox"},
   {title:"Servics",cat:"apps",desc:"A vehicle care app for maintenance, service history, and trip details.",tags:["Mobile app","Vehicle care"],year:"2026",image:"images/servics.png"},
   {title:"9router",cat:"apps",desc:"An AI-powered terminal tool experiment for working with files and APIs.",tags:["AI","Developer tool"],year:"2026",image:"images/9router.png"}
